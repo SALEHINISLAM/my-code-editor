@@ -8,6 +8,7 @@ import {Controlled as ControllEditor, Controlled} from 'react-codemirror2'
 import "./App.css";
 import { useState } from 'react'
 import Iframe from 'react-iframe'
+import { parse } from 'postcss'
 
 function App() {
   const [code, setCode]=useState('');
@@ -30,22 +31,22 @@ function App() {
             <div className="card bg-base-300 rounded-box grid  place-items-center border p-1">
               <textarea
                 className="textarea textarea-bordered mockup-code w-full h-full rounded-box overflow-y-auto text-base-content text-lg"
-                placeholder="Wite HTML Code here" id="html-code"
+                placeholder="Wite HTML Code here" spellCheck='false' id="html-code"
               ></textarea>
             </div>
 
             <div className="card bg-base-300 rounded-box grid  place-items-center border">
               <textarea
                 className="textarea textarea-bordered mockup-code w-full h-full rounded-box overflow-y-auto text-base-content text-lg"
-                placeholder="Wite CSS Code here" id="css-code"
+                placeholder="Wite CSS Code here" spellCheck='false' id="css-code"
               ></textarea>
             </div>
 
             <div className="card bg-base-300 rounded-box grid place-items-center border">
               <textarea
                 className="textarea textarea-bordered mockup-code w-full h-full rounded-box overflow-y-auto text-base-content text-lg"
-                placeholder="Wite JavaScript Code here" id="js-code"
-              >bro This is not functional yet</textarea>
+                placeholder="Wite JavaScript Code here" id="js-code" spellCheck='false'
+              ></textarea>
             </div>
           </div>
         </div>
@@ -54,7 +55,7 @@ function App() {
             Run Code
           </button>
           <div className="mockup-browser h-full w-full overflow-auto">
-            <div className="w-full h-full" id='output'></div>
+            <div className="w-full h-full overflow-auto" id='output'></div>
           </div>
           </div>
         </div>
